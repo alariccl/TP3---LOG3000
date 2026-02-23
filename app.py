@@ -10,6 +10,23 @@ OPS = {
     '/': divide,
 }
 
+"""
+Parse et évalue une expression mathématique simple.
+
+Cette fonction prend une expression contenant deux opérandes et un seul
+opérateur, la parse et retourne le résultat du calcul.
+
+Args:
+    expr (str): L'expression à évaluer (format: "nombre operateur nombre").
+                Les espaces sont ignorés.
+
+Returns:
+    float: Le résultat de l'opération mathématique.
+
+Raises:
+    ValueError: Si l'expression est vide, invalide, contient plusieurs
+                opérateurs, ou si les opérandes ne sont pas des nombres.
+"""
 def calculate(expr: str):
     if not expr or not isinstance(expr, str):
         raise ValueError("empty expression")
@@ -41,6 +58,15 @@ def calculate(expr: str):
 
     return OPS[op_char](a, b)
 
+"""
+Route principale de l'application.
+
+Gère les requêtes GET et POST.
+
+Returns:
+    str: La page HTML rendue avec le résultat du calcul (le cas échéant).
+            En cas d'erreur lors du calcul, un message d'erreur est affiché.
+"""
 @app.route('/', methods=['GET', 'POST'])
 def index():
     result = ""
