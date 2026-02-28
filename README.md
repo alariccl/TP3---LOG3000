@@ -1,6 +1,6 @@
 # TP3 - LOG3000 : Application Calculatrice Web
 
-**Numéro d'équipe :** [À remplir]
+**Numéro d'équipe :** 9
 
 ---
 
@@ -107,7 +107,7 @@ Le projet utilise une stratégie de branchage simple :
   - Point de départ pour les branches de fonctionnalités
 
 - **Branches de travail** : Créez des branches courtes et descriptives pour chaque tâche
-  - Format : `feature/nom-feature` ou `bugfix/nom-bug`
+  - Format : `feature/nom-feature` ou `feature/fix nom-bug`
 
 ### 2. Processus de contribution
 
@@ -168,4 +168,27 @@ git push origin feature/votre-fonctionnalite
 
 - Attendez la révision d'un autre membre de l'équipe
 - Répondez aux commentaires et suggestions
-- Un fois approuvé, fusion dans `dev` puis dans `main`
+- Un fois approuvé, fusion dans `dev` puis dans `main`, ou directement dans `main`
+
+### Rapport de bogues
+Lorsqu’un test échoue :
+1. Décrire clairement le problème observé.
+2. Fournir les étapes de reproduction.
+3. Créer une issue GitHub associée
+   
+## Suivi des corrections de bogues et validation des tests
+
+Chaque bogue découvert est corrigé sur une branche dédiée, selon le flux Git suivant :
+1. Création d’une branche `feature/fix-<nom-du-bogue>`
+2. Correction du problème
+3. Réexécution du test associé
+4. Validation et documentation du résultat
+
+ ### Tableau de suivi des bogues (documentation)
+
+| Issue | Description du bogue | Fichiers concernés | Tests / Vérification | État avant | État après |
+| :--- | :--- | :--- | :--- | :---: | :---: |
+| #1 | **Erreur dans la fonction `subtract`**<br>(Inversion des opérandes) | `operators.py` | `TestSubtract::test_subtract_positive_numbers`<br>`TestSubtract::test_subtract_negative_numbers`<br>`TestSubtract::test_subtract_with_zero`<br>`TestSubtract::test_subtract_floats` <br> `TestCalculateFunction::test_calculate_subtraction` | ❌ | ✅ |
+| #2 | **Erreur dans la fonction `multiply`**<br>(Exponentiation au lieu de produit) | `operators.py` | `TestMultiply::test_multiply_positive_numbers`<br>`TestMultiply::test_multiply_negative_numbers`<br>`TestMultiply::test_multiply_with_zero`<br>`TestMultiply::test_multiply_floats`<br> `TestCalculateFunction::test_calculate_multiplication` | ❌ | ✅ |
+| #3 | **Bogue visuel – boutons incorrects**<br>(Valeurs "02", "88" et libellés manquants) | `templates/index.html`, `static/styles.css` | Vérification visuelle de l’interface et du comportement des boutons. | ❌ | ✅ |
+| #4 | **Précision de la division**<br>(Retourne un entier au lieu d'un float) | `operators.py` | `TestDivide::test_divide_with_remainder` | ❌ | ✅ |
