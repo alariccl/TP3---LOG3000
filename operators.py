@@ -22,7 +22,7 @@ Returns:
     float: Le résultat de la soustraction (a - b).
 """
 def subtract(a,b):
-    return b - a
+    return a - b
 
 """
 Multiplie deux nombres.
@@ -35,7 +35,7 @@ Returns:
     float: Le produit de a et b.
 """
 def multiply(a,b):
-    return a ** b
+    return a * b
 
 """
 Divise deux nombres (division entière).
@@ -51,4 +51,4 @@ Note:
     Lève une exception ZeroDivisionError si b est égal à 0.
 """
 def divide(a,b):
-    return a // b
+    return a / b
