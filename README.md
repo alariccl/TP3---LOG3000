@@ -188,7 +188,10 @@ Chaque bogue découvert est corrigé sur une branche dédiée, selon le flux Git
 
 | Issue | Description du bogue | Fichiers concernés | Tests / Vérification | État avant | État après |
 | :--- | :--- | :--- | :--- | :---: | :---: |
-| #1 | **Erreur dans la fonction `subtract`**<br>(Inversion des opérandes) | `operators.py` | `TestSubtract::test_subtract_positive_numbers`<br>`TestSubtract::test_subtract_negative_numbers`<br>`TestSubtract::test_subtract_with_zero`<br>`TestSubtract::test_subtract_floats` <br> `TestCalculateFunction::test_calculate_subtraction` | ❌ | ✅ |
-| #2 | **Erreur dans la fonction `multiply`**<br>(Exponentiation au lieu de produit) | `operators.py` | `TestMultiply::test_multiply_positive_numbers`<br>`TestMultiply::test_multiply_negative_numbers`<br>`TestMultiply::test_multiply_with_zero`<br>`TestMultiply::test_multiply_floats`<br> `TestCalculateFunction::test_calculate_multiplication` | ❌ | ✅ |
-| #3 | **Bogue visuel – boutons incorrects**<br>(Valeurs "02", "88" et libellés manquants) | `templates/index.html`, `static/styles.css` | Vérification visuelle de l’interface et du comportement des boutons. | ❌ | ✅ |
-| #4 | **Précision de la division**<br>(Retourne un entier au lieu d'un float) | `operators.py` | `TestDivide::test_divide_with_remainder` | ❌ | ✅ |
+| #1 | **La soustraction ne marche pas** | `operators.py` | `test_calculate_subtraction`<br>`test_subtract_positive_numbers`<br>`test_subtract_result_negative`<br>`test_subtract_negative_numbers`<br>`test_subtract_zero`<br>`test_subtract_from_zero` | ❌ | ✅ |
+| #2 | **La multiplication ne marche pas** | `operators.py` | `test_calculate_multiplication`<br>`test_multiply_positive_numbers`<br>`test_multiply_negative_numbers`<br>`test_multiply_mixed_signs`<br>`test_multiply_by_zero`<br>`test_multiply_decimals` | ❌ | ✅ |
+| #3 | **Bogue visuel – boutons affichant des valeurs incorrectes** | `templates/index.html` | Vérification visuelle de l’interface :<br> "02" → "2", "88" → "8", libellés "*" et "/" manquants. | ❌ | ✅ |
+| #4 | **La division retourne un entier au lieu d'un float** | `operators.py` | `test_divide_with_remainder` | ❌ | ✅ |
+
+** Score de tests initiaux :** 13 tests échoués sur 41 (28 tests réussis).
+** Score de tests finaux :** 0 tests échoués sur 41 (41 tests réussis).
