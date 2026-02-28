@@ -50,7 +50,7 @@ Avant de commencer, assurez-vous que votre système dispose de :
 #### 2. Ouvrir le dossier avec un IDE
 ---
 
-## 📚 Instructions d'utilisation
+##  Instructions d'utilisation
 
 ### Lancer l'application
 
